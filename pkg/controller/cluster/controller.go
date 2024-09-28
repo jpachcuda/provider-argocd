@@ -304,6 +304,11 @@ func (e *external) convertClusterTypes(ctx context.Context, p *v1alpha1.ClusterP
 		if p.Config.TLSClientConfig.ServerName != nil {
 			argoCluster.Config.TLSClientConfig.ServerName = *p.Config.TLSClientConfig.ServerName
 		}
+
+		if p.Config.TLSClientConfig.CAData != nil {
+			argoCluster.Config.TLSClientConfig.CAData = p.Config.TLSClientConfig.CAData
+		}
+
 		argoCluster.Config.TLSClientConfig.Insecure = p.Config.TLSClientConfig.Insecure
 	}
 
